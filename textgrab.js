@@ -6,7 +6,7 @@ const fs = require('fs')
 const T = new Twit(config)
 
 let params = {
-    q: 'because',
+    q: 'class',
     geocode: ["-37.753000", "174.779000", "50km"],
     count: 3
 }
@@ -19,14 +19,20 @@ function haveData(err, data, response){
     } else {
         readTextToArray(data)
         // console.log(data)
-        fs.writeFile('tweetText.json', JSON.stringify(data), (err) => console.log(err + ' reading out'))
+        // fs.writeFile('tweetText.json', JSON.stringify(data), (err) => console.log(err + ' reading out'))
     }
 }
 
 function readTextToArray(data){
     let messageList = data.statuses;
 
-    for(let i=0; i < messageList.length; i++){
-        console.log(messageList[i]['text'])
-    }
+    let tweetList = messageList.map(tweet => {
+        return messageList[tweet].text
+    })
+
+    document.getElementById('tweetbox').innerHTML = tweetList;
+
+    // for(let i=0; i < messageList.length; i++){
+    //     console.log(messageList[i]['text'] + "\n")
+    // }
 }
