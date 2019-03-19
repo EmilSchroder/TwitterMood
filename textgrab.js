@@ -6,7 +6,8 @@ const fs = require('fs')
 const T = new Twit(config)
 
 let params = {
-    q: 'happy',
+    q: 'because',
+    geocode: ["-37.753000", "174.779000", "50km"],
     count: 3
 }
 
@@ -16,8 +17,8 @@ function haveData(err, data, response){
     if(err){
         console.log(err)
     } else {
-        // readTextToArray(data)
-        console.log(data)
+        readTextToArray(data)
+        // console.log(data)
         fs.writeFile('tweetText.json', JSON.stringify(data), (err) => console.log(err + ' reading out'))
     }
 }
