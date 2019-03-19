@@ -1,0 +1,11 @@
+{
+  "name": "TwitterMood",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/EmilSchroder/TwitterMood.git",
+  "author": "EmilSchroder <eschro66@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
