@@ -14,6 +14,14 @@ function haveData(err, data, response){
     if(err){
         console.log(err)
     } else {
-        console.log(data)
+        readTextToArray(data)
+    }
+}
+
+function readTextToArray(data){
+    let messageList = data.statuses;
+
+    for(let i=0; i < messageList.length; i++){
+        console.log(messageList[i]['text'])
     }
 }
