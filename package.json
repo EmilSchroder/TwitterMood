@@ -6,7 +6,7 @@
   "author": "EmilSchroder <eschro66@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node start",
+    "start": "node server",
     "webpack": "webpack --watch"
   },
   "dependencies": {
