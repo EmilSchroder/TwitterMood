@@ -1,17 +1,29 @@
 const config = require('./config')
 
 const Twit = require('twit')
-const fs = require('fs')
+// const fs = require('fs')
 
-const T = new Twit(config)
-
-let params = {
-    q: 'class',
-    geocode: ["-37.753000", "174.779000", "50km"],
-    count: 3
+function hey(){
+    document.getElementById('tweetbox').innerHTML = 'hey'
 }
 
-T.get('search/tweets', params, haveData);
+
+function searchTweet(){
+    
+
+
+    const T = new Twit(config)
+
+    let params = {
+        q: 'class',
+        geocode: ["-37.753000", "174.779000", "50km"],
+        count: 3
+    }
+
+    
+    T.get('search/tweets', params, haveData);
+}
+
 
 function haveData(err, data, response){
     if(err){
