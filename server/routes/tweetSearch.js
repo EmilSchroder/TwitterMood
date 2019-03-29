@@ -3,20 +3,21 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json());
 
-const config = require('./config')
+const config = require('../../config')
 const Twit = require('twit')
 
 router.get('/', (req, res) => {
 
   const T = new Twit(config)
-  
+
   let params = {
     q: 'class',
     geocode: ["-37.753000", "174.779000", "50km"],
     count: 3
   }
 
-  T.get('search/tweets', params, haveData);
+  T.get('search/tweets', params, haveData)
+    .then(res => res.json)
 
   function haveData(err, data, response){
     if(err){
@@ -31,11 +32,11 @@ router.get('/', (req, res) => {
   function readTextToArray(data){
     let messageList = data.statuses;
 
-    let tweetList = messageList.map(tweet => {
-        return messageList[tweet].text
-    })
+    // let tweetList = messageList.map(tweet => {
+    //     return messageList[tweet].text
+    // })
 
-    return tweetList;
+    return messageList;
     // document.getElementById('tweetbox').innerHTML = tweetList;
 
     // for(let i=0; i < messageList.length; i++){
