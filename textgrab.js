@@ -1,7 +1,6 @@
 const config = require('./config')
 
 const Twit = require('twit')
-// const fs = require('fs')
 
 function hey(){
     document.getElementById('tweetbox').innerHTML = 'hey'
