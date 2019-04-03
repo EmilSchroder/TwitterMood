@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json());
 
+
+
 const config = require('../../config')
 const Twit = require('twit')
 
@@ -32,16 +34,11 @@ router.get('/', (req, res) => {
   function readTextToArray(data){
     let messageList = data.statuses;
 
-    // let tweetList = messageList.map(tweet => {
-    //     return messageList[tweet].text
-    // })
-
-    return messageList;
-    // document.getElementById('tweetbox').innerHTML = tweetList;
-
-    // for(let i=0; i < messageList.length; i++){
-    //     console.log(messageList[i]['text'] + "\n")
-    // }
+    let tweetList = messageList.map(tweet => {
+        return messageList[tweet].text
+    })
+    console.log(tweetList)
+    return tweetList;
   }
 
 });
